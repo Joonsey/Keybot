@@ -1,10 +1,10 @@
 ## Welcome to Keybot
 
-Keybot is a python scrit that clicks your keys for you! So you don't have to.
+Keybot is a python script that clicks your keys for you! So you don't have to.
 
 ### Python?
 
-Yes python, it's the only language i know appart from some basic html and css
+Yes python, it's the only language i know apart from some basic html and css
 
 This how the class is defined.
 ```python
