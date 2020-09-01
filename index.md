@@ -21,8 +21,8 @@ ThisInstance = keybot(2,2,4)
 ```
 
 Where the first number represents the button to be pressed. (passes any single digit or single letter)
-The 2nd represents the interval of the key being pressed
-The last the amount of times to iterate (defaults to 10)
+The 2nd represents the interval of the key being pressed.
+The last is the amount of times to iterate (defaults to 10)
 
 ### Sounds neat where is the link?
 [right here](https://github.com/Joonsey/Keybot) Feel free to contact me if you have any issues with the script and i'll gladly adapt it.
