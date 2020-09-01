@@ -25,7 +25,7 @@ The 2nd represents the interval of the key being pressed.
 The last is the amount of times to iterate (defaults to 10)
 
 ### Sounds neat where is the link?
-[right here](https://github.com/Joonsey/Keybot) Feel free to contact me if you have any issues with the script and i'll gladly adapt it.
+[right here](https://github.com/Joonsey/Keybot) feel free to contact me if you have any issues with the script and i'll gladly adapt it.
 
 ### Does this work outside of WoW?
 Well yes. Ofcourse, also make sure to not make it loop like 10000 times that's gonna be hell for you.
