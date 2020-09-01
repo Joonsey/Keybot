@@ -1,37 +1,31 @@
-## Welcome to GitHub Pages
+## Welcome to Keybot
 
-You can use the [editor on GitHub](https://github.com/Joonsey/Keybot/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Keybot is a python scrit that clicks your keys for you! So you don't have to.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Python?
 
-### Markdown
+Yes python, it's the only language i know appart from some basic html and css
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+This how the class is defined.
+```python
+class keybot:
+    def __init__(self,keypress=4,interval=6,l=10):
+        self.keypress = str(keypress)
+        self.interval = interval
+        self.l = l
+        self.amount_of_loops(self.l)
+```
+So you would want to define in the class when called something like:
+```python
+ThisInstance = keybot(2,2,4)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Where the first number represents the button to be pressed. (passes any single digit or single letter)
+The 2nd represents the interval of the key being pressed
+The last the amount of times to iterate (defaults to 10)
 
-### Jekyll Themes
+### Sounds neat where is the link?
+[right here](https://github.com/Joonsey/Keybot) Feel free to contact me if you have any issues with the script and i'll gladly adapt it.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Joonsey/Keybot/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Does this work outside of WoW?
+Well yes. Ofcourse, also make sure to not make it loop like 10000 times that's gonna be hell for you.
