@@ -12,56 +12,63 @@ class button:
         self.key = key
         self.pianokey = pianokey
         self.piano = piano
+        self.queue = []
+        self.queuelock = threading.Lock()
+        threading.Thread(target=self.getInput).start()
         threading.Thread(target=self.main).start()
-        
+
 
 
     def update(self, piano):
         while True:
             if piano.poll():
-                print("updating...")
+                
                 event = piano.read(2)[0]
                 return event    
 
     def checkKey(self, event, pianokey):
-        if event[0][1] == pianokey:
-            print("checking key")
+        if event[1] == pianokey:
+            
             return True
         else:
             return False
 
-    def getKeyStatus(self, event, pianokey):
-        if self.checkKey(event, pianokey):
-            while event[0][2]:
-                self.keyStatus = True
-                print('pressed')
-            else:
-                self.keyStatus = False
-                print('released')
-            return self.keyStatus
+    def keystatus(self, event):
+        keystatus = ""
+        if event[0] == 128:
+            print('released')
+            keystatus = "up"
+        elif event[0] == 144:
+            keystatus = "down"
+        return keystatus
 
     def pressKey(self, event):
-        if event[0][1] == self.pianokey:
-            print(f"{self.pianokey} was pressed")
-            if self.getKeyStatus(event, self.pianokey):
+        if event[1] == self.pianokey:
+            if self.keystatus(event) == 'down':
                 pydirectinput.keyDown(self.key)
-            else: 
+            elif self.keystatus(event) == 'up': 
                 pydirectinput.keyUp(self.key)
+            else:
+                pass
 
 
-    def main(self):
+    def getInput(self):
         while True:
             if self.piano.poll():
                 event = self.piano.read(2)[0]
-                while event[0][2] and self.checkKey(event, self.pianokey):
-                    try:
-                        event = self.piano.read(2)[0]
-                    except:
-                        pass
-                    self.pressKey(event)
-                    print(event)
+                with self.queuelock:
+                    self.queue.append(event[0])
+                    print('added ', event[0], ' to the queue')
+                
+                
 
-            
+    def main(self):
+        while True:
+            if len(self.queue) > 0:
+                with self.queuelock:
+                    print(self.queue)
+                    self.pressKey(self.queue.pop())
+                
 
 
 a = button('a',21, my_input)
