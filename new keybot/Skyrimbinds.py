@@ -67,13 +67,13 @@ def readInput(n):
                 threading.Thread(target=pressKey, args=(event, 28, "e")).start()
                 threading.Thread(target=pressKey, args=(event, 29, "f")).start()
                     
-                speed = event[0][2]/1000
-                DEFAULTSPEED = 1
+                speed = int(event[0][2]/10)
+                #DEFAULTSPEED = 1
                 
-                threading.Thread(target=moveMouse, args=(event, 31, -DEFAULTSPEED, 0)).start() # move left // g
-                threading.Thread(target=moveMouse, args=(event, 33, 0, DEFAULTSPEED)).start() # move down // a
-                threading.Thread(target=moveMouse, args=(event, 34, 0, -DEFAULTSPEED)).start() # move up // a-sharp
-                threading.Thread(target=moveMouse, args=(event, 35, DEFAULTSPEED, 0)).start() # move right // b
+                threading.Thread(target=moveMouse, args=(event, 31, -speed, 0)).start() # move left // g
+                threading.Thread(target=moveMouse, args=(event, 33, 0, speed)).start() # move down // a
+                threading.Thread(target=moveMouse, args=(event, 34, 0, -speed)).start() # move up // a-sharp
+                threading.Thread(target=moveMouse, args=(event, 35, speed, 0)).start() # move right // b
                 
 
 
