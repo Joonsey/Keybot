@@ -1,6 +1,8 @@
 import time, os, pygame, pygame.midi, pyautogui, pydirectinput, threading
 from pynput.keyboard import Key, Controller
 from pynput.mouse import Button, Controller as Mouse
+
+
 pygame.midi.init()
 my_input = pygame.midi.Input(1)
 
@@ -68,11 +70,13 @@ class button:
                 with self.queuelock:
                     print(self.queue)
                     self.pressKey(self.queue.pop())
-                
+
 
 
 a = button('a',21, my_input)
 b = button('b',23, my_input)
+
+
 
 #my_input.close()
 
